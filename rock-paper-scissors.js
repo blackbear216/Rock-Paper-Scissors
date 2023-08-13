@@ -9,3 +9,13 @@ function getComputerChoice() {
         return "Scissors"
     }
 }
+
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    firstLetter = playerSelection.slice(0, 1).toUpperCase();
+    const player = firstLetter.concat("", playerSelection.slice(1))
+
+    return player
+}
+
+console.log(playRound(getComputerChoice(), getComputerChoice()))
