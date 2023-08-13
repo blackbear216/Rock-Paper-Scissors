@@ -14,17 +14,31 @@ function playRound(playerSelection, computerSelection) {
     const player = capitalizePlayer(playerSelection)
     const computer = computerSelection
 
-    if player == "Rock" {
-        if computer == "Rock" {
+    if (player == "Rock") {
+        if (computer == "Rock") {
             tieMessage("Rock")
         } else if (computer == "Paper") {
             loseMessage("Rock", "Paper")
         } else {
             winMessage("Rock", "Scissors")
         }
+    } else if (player == "Paper") {
+        if (computer == "Rock") {
+            winMessage("Paper", "Rock")
+        } else if (computer == "Paper") {
+            tieMessage("Paper")
+        } else {
+            loseMessage("Paper", "Scissors")
+        }
+    } else {
+        if (computer == "Rock") {
+            loseMessage("Scissors", "Rock")
+        } else if (computer == "Paper") {
+            winMessage("Scissors", "Paper")
+        } else {
+            tieMessage("Scissors")
+        }
     }
-
-    
 }
 
 function capitalizePlayer(playerSelection) {
