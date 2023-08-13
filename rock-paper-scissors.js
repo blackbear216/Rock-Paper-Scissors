@@ -11,11 +11,37 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    firstLetter = playerSelection.slice(0, 1).toUpperCase();
-    const player = firstLetter.concat("", playerSelection.slice(1))
+    const player = capitalizePlayer(playerSelection)
+    const computer = computerSelection
 
-    return player
+    if player == "Rock" {
+        if computer == "Rock" {
+            tieMessage("Rock")
+        } else if (computer == "Paper") {
+            loseMessage("Rock", "Paper")
+        } else {
+            winMessage("Rock", "Scissors")
+        }
+    }
+
+    
 }
 
-console.log(playRound(getComputerChoice(), getComputerChoice()))
+function capitalizePlayer(playerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    firstLetter = playerSelection.slice(0, 1).toUpperCase();
+
+    return firstLetter.concat("", playerSelection.slice(1))
+}
+
+function tieMessage(hand) {
+    console.log(`Draw! ${hand} matches ${hand}`)
+}
+
+function loseMessage(player, computer) {
+    console.log(`You Lose! ${computer} beats ${player}`)
+}
+
+function winMessage(player, computer) {
+    console.log(`You Win! ${player} beats ${computer}`)
+}
