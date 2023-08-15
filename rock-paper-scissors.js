@@ -73,9 +73,30 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
+    for (let i = 0; i < 5; i++) {
+        while (true) {
+            let playerSelection = prompt("Rock, Paper, or Scissors?")
+            if (isValid(playerSelection)) {
+                playerSelection = capitalizePlayer(playerSelection)
+                break
+            }
+        }
+        
+        round = playRound(playerSelection, getComputerChoice())
+    }
+
     playRound(playerSelection, computerSelection)
     playRound(playerSelection, computerSelection)
     playRound(playerSelection, computerSelection)
     playRound(playerSelection, computerSelection)
     playRound(playerSelection, computerSelection)
+}
+
+function isValid(playerSelection) {
+    playerSelection = playerSelection.toLowerCase()
+    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+        return true
+    } else {
+        return false
+    }
 }
