@@ -59,3 +59,14 @@ function loseMessage(player, computer) {
 function winMessage(player, computer) {
     console.log(`You Win! ${player} beats ${computer}`)
 }
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+}
