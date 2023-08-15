@@ -74,8 +74,9 @@ function game() {
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
+        let playerSelection;
         while (true) {
-            let playerSelection = prompt("Rock, Paper, or Scissors?")
+            playerSelection = prompt("Rock, Paper, or Scissors?")
             if (isValid(playerSelection)) {
                 playerSelection = capitalizePlayer(playerSelection)
                 break
@@ -124,3 +125,5 @@ function printFinalResult(playerScore, computerScore) {
         console.log("It's a tie!")
     }
 }
+
+game()
