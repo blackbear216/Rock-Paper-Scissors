@@ -17,26 +17,35 @@ function playRound(playerSelection, computerSelection) {
     if (player == "Rock") {
         if (computer == "Rock") {
             tieMessage("Rock")
+            return 0
         } else if (computer == "Paper") {
             loseMessage("Rock", "Paper")
+            return 1
         } else {
             winMessage("Rock", "Scissors")
+            return 2
         }
     } else if (player == "Paper") {
         if (computer == "Rock") {
             winMessage("Paper", "Rock")
+            return 2
         } else if (computer == "Paper") {
             tieMessage("Paper")
+            return 0
         } else {
             loseMessage("Paper", "Scissors")
+            return 1
         }
     } else {
         if (computer == "Rock") {
             loseMessage("Scissors", "Rock")
+            return 1
         } else if (computer == "Paper") {
             winMessage("Scissors", "Paper")
+            return 2
         } else {
             tieMessage("Scissors")
+            return 0
         }
     }
 }
