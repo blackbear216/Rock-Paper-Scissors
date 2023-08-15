@@ -90,7 +90,7 @@ function game() {
             playerScore++
         }
 
-        
+        printTally(playerScore, computerScore, i+1)
     }
 
     playRound(playerSelection, computerSelection)
@@ -107,4 +107,10 @@ function isValid(playerSelection) {
     } else {
         return false
     }
+}
+
+function printTally(playerScore, computerScore, tally) {
+    console.log(`Player score: ${playerScore}`)
+    console.log(`Computer score: ${computerScore}`)
+    console.log(`Rounds played: ${tally}/5`)
 }
