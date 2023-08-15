@@ -83,6 +83,14 @@ function game() {
         }
         
         round = playRound(playerSelection, getComputerChoice())
+
+        if (round == 1) {
+            computerScore++
+        } else if (round == 2) {
+            playerScore++
+        }
+
+        
     }
 
     playRound(playerSelection, computerSelection)
