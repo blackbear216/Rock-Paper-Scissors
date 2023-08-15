@@ -93,11 +93,7 @@ function game() {
         printTally(playerScore, computerScore, i+1)
     }
 
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
+    printFinalResult(playerScore, computerScore)
 }
 
 function isValid(playerSelection) {
@@ -113,4 +109,18 @@ function printTally(playerScore, computerScore, tally) {
     console.log(`Player score: ${playerScore}`)
     console.log(`Computer score: ${computerScore}`)
     console.log(`Rounds played: ${tally}/5`)
+}
+
+function printFinalResult(playerScore, computerScore) {
+    console.log(`Final scores:`)
+    console.log(`Player score: ${playerScore}`)
+    console.log(`Computer score: ${computerScore}`)
+
+    if (playerScore > computerScore) {
+        console.log("Player wins!")
+    } else if (playerScore < computerScore) {
+        console.log("Computer wins!")
+    } else {
+        console.log("It's a tie!")
+    }
 }
