@@ -132,5 +132,15 @@ function getPlayerChoice() {
 
 const rock = document.querySelector('.rock');
 rock.addEventListener('click', function () {
-    playRound("Rock", getComputerChoice())
+    playRound("Rock", getComputerChoice());
+});
+
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', function () {
+    playRound("Paper", getComputerChoice());
+});
+
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', function () {
+    playRound("Scissors", getComputerChoice());
 });
