@@ -11,8 +11,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    const player = capitalizePlayer(playerSelection)
-    const computer = computerSelection
+    const player = playerSelection;
+    const computer = computerSelection;
 
     if (player == "Rock") {
         if (computer == "Rock") {
@@ -74,16 +74,7 @@ function game() {
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        let playerSelection;
-        while (true) {
-            playerSelection = prompt("Rock, Paper, or Scissors?")
-            if (isValid(playerSelection)) {
-                playerSelection = capitalizePlayer(playerSelection)
-                break
-            }
-        }
-        
-        round = playRound(playerSelection, getComputerChoice())
+        round = playRound(getPlayerChoice(), getComputerChoice())
 
         if (round == 1) {
             computerScore++
@@ -126,4 +117,18 @@ function printFinalResult(playerScore, computerScore) {
     }
 }
 
-game()
+//game()
+
+function getPlayerChoice() {
+    let playerSelection;
+        while (true) {
+            playerSelection = prompt("Rock, Paper, or Scissors?");
+            if (isValid(playerSelection)) {
+                playerSelection = capitalizePlayer(playerSelection);
+                break;
+            }
+        }
+}
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', playRound("Rock", getComputerChoice()));
