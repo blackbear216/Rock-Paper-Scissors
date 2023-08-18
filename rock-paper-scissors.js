@@ -52,57 +52,19 @@ function playRound(playerSelection, computerSelection) {
     adjustScore(returnValue);
 }
 
-function capitalizePlayer(playerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    firstLetter = playerSelection.slice(0, 1).toUpperCase();
-
-    return firstLetter.concat("", playerSelection.slice(1))
-}
-
 function tieMessage(hand) {
-    console.log(`Draw! ${hand} matches ${hand}`)
+    console.log(`Draw! ${hand} matches ${hand}`);
+    messages.textContent = `Draw! ${hand} matches ${hand}`;
 }
 
 function loseMessage(player, computer) {
-    console.log(`You Lose! ${computer} beats ${player}`)
+    console.log(`You Lose! ${computer} beats ${player}`);
+    messages.textContent = `You Lose! ${computer} beats ${player}`;
 }
 
 function winMessage(player, computer) {
-    console.log(`You Win! ${player} beats ${computer}`)
-}
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    while (playerScore < 5 && computerScore < 5) {
-        round = playRound(getPlayerChoice(), getComputerChoice())
-
-        if (round == 1) {
-            computerScore++
-        } else if (round == 2) {
-            playerScore++
-        }
-
-        printTally(playerScore, computerScore, i+1)
-    }
-
-    printFinalResult(playerScore, computerScore)
-}
-
-function isValid(playerSelection) {
-    playerSelection = playerSelection.toLowerCase()
-    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
-        return true
-    } else {
-        return false
-    }
-}
-
-function printTally(playerScore, computerScore, tally) {
-    console.log(`Player score: ${playerScore}`)
-    console.log(`Computer score: ${computerScore}`)
-    console.log(`Rounds played: ${tally}/5`)
+    console.log(`You Win! ${player} beats ${computer}`);
+    messages.textContent = `You Win! ${player} beats ${computer}`;
 }
 
 function printFinalResult(playerScore, computerScore) {
@@ -118,8 +80,6 @@ function printFinalResult(playerScore, computerScore) {
         console.log("It's a tie!")
     }
 }
-
-//game()
 
 function getPlayerChoice() {
     let playerSelection;
@@ -149,6 +109,7 @@ scissors.addEventListener('click', function () {
 
 const player = document.querySelector('.player-score');
 const computer = document.querySelector('.computer-score');
+const messages = document.querySelector('.messages');
 
 let playerScore = 0;
 let computerScore = 0;
