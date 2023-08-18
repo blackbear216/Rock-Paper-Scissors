@@ -73,7 +73,7 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
+    while (playerScore < 5 && computerScore < 5) {
         round = playRound(getPlayerChoice(), getComputerChoice())
 
         if (round == 1) {
@@ -144,3 +144,14 @@ const scissors = document.querySelector('.scissors');
 scissors.addEventListener('click', function () {
     playRound("Scissors", getComputerChoice());
 });
+
+let playerScore = 0;
+let computerScore = 0;
+
+function adjustScore(code) {
+    if (code == 1) {
+        computerScore++
+    } else if (code == 2) {
+        playerScore++
+    }
+}
