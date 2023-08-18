@@ -117,12 +117,15 @@ let computerScore = 0;
 const reset = document.querySelector('.reset-button');
 reset.addEventListener('click', resetScore);
 
+const resetMessage = document.querySelector('.reset-message');
+
 function resetScore() {
     playerScore = 0;
     computerScore = 0;
     player.textContent = `${playerScore}`;
     computer.textContent = `${computerScore}`;
     messages.textContent = "Rock, Paper, or Scissors?";
+    resetMessage.textContent = " ";
 }
 
 function adjustScore(code) {
@@ -135,6 +138,7 @@ function adjustScore(code) {
     computer.textContent = `${computerScore}`;
 
     if (playerScore >= 5 || computerScore >= 5) {
+        resetMessage.textContent = "Click reset to try again";
         printFinalResult(playerScore, computerScore);
     }
 }
