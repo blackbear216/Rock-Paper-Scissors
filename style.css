@@ -29,3 +29,7 @@ button {
     gap: 16px;
     font-size: 24px;
 }
+
+.messages {
+    font-size: 24px;
+}
