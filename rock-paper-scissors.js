@@ -131,4 +131,6 @@ function getPlayerChoice() {
 }
 
 const rock = document.querySelector('.rock');
-rock.addEventListener('click', playRound("Rock", getComputerChoice()));
+rock.addEventListener('click', function () {
+    playRound("Rock", getComputerChoice())
+});
