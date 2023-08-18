@@ -13,41 +13,43 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     const player = playerSelection;
     const computer = computerSelection;
+    let returnValue = 0;
 
     if (player == "Rock") {
         if (computer == "Rock") {
             tieMessage("Rock")
-            return 0
+            returnValue = 0;
         } else if (computer == "Paper") {
             loseMessage("Rock", "Paper")
-            return 1
+            returnValue = 1;
         } else {
             winMessage("Rock", "Scissors")
-            return 2
+            returnValue = 2;
         }
     } else if (player == "Paper") {
         if (computer == "Rock") {
             winMessage("Paper", "Rock")
-            return 2
+            returnValue = 2;
         } else if (computer == "Paper") {
             tieMessage("Paper")
-            return 0
+            returnValue = 0;
         } else {
             loseMessage("Paper", "Scissors")
-            return 1
+            returnValue = 1;
         }
     } else {
         if (computer == "Rock") {
             loseMessage("Scissors", "Rock")
-            return 1
+            returnValue = 1;
         } else if (computer == "Paper") {
             winMessage("Scissors", "Paper")
-            return 2
+            returnValue = 2;
         } else {
             tieMessage("Scissors")
-            return 0
+            returnValue = 0;
         }
     }
+    adjustScore(returnValue);
 }
 
 function capitalizePlayer(playerSelection) {
@@ -145,6 +147,9 @@ scissors.addEventListener('click', function () {
     playRound("Scissors", getComputerChoice());
 });
 
+const player = document.querySelector('.player-score');
+const computer = document.querySelector('.computer-score');
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -154,4 +159,6 @@ function adjustScore(code) {
     } else if (code == 2) {
         playerScore++
     }
+    player.textContent = `${playerScore}`;
+    computer.textContent = `${computerScore}`;
 }
