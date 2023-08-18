@@ -114,6 +114,17 @@ const messages = document.querySelector('.messages');
 let playerScore = 0;
 let computerScore = 0;
 
+const reset = document.querySelector('.reset-button');
+reset.addEventListener('click', resetScore);
+
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
+    player.textContent = `${playerScore}`;
+    computer.textContent = `${computerScore}`;
+    messages.textContent = "Rock, Paper, or Scissors?";
+}
+
 function adjustScore(code) {
     if (code == 1) {
         computerScore++
