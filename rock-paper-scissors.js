@@ -73,11 +73,11 @@ function printFinalResult(playerScore, computerScore) {
     console.log(`Computer score: ${computerScore}`)
 
     if (playerScore > computerScore) {
-        console.log("Player wins!")
-    } else if (playerScore < computerScore) {
-        console.log("Computer wins!")
+        console.log("Player wins!");
+        messages.textContent = "Player wins!";
     } else {
-        console.log("It's a tie!")
+        console.log("Computer wins!")
+        messages.textContent = "Computer wins!";
     }
 }
 
@@ -122,4 +122,8 @@ function adjustScore(code) {
     }
     player.textContent = `${playerScore}`;
     computer.textContent = `${computerScore}`;
+
+    if (playerScore >= 5 || computerScore >= 5) {
+        printFinalResult(playerScore, computerScore);
+    }
 }
