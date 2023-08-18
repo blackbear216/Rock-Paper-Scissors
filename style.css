@@ -4,9 +4,28 @@
     align-items: center;
     flex-direction: column;
     height: 800px;
+    gap: 128px;
 }
 
 .play-buttons {
     display: flex;
+    gap: 16px;
+}
 
+button {
+    width: 128px;
+    height: 64px;
+}
+
+.results {
+    display: flex;
+    gap: 128px;
+}
+
+.result {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 24px;
 }
